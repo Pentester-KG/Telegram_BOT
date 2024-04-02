@@ -29,20 +29,13 @@ async def myinfo_cmd(message: types.Message):
 
 
 @dp.message(Command('picture'))
-async def send_photo(message: types.Message):
-    file1 = types.FSInputFile('images/ilon-mask.jpg')
-    file2 = types.FSInputFile('images/bill.jpg')
-    file3 = types.FSInputFile('images/epic.jpg')
-    file4 = types.FSInputFile('images/tim kuk.jpeg')
-    file5 = types.FSInputFile('images/sam Altman.jpg')
-    file6 = types.FSInputFile('images/jack ma.jpg')
-    file7 = types.FSInputFile('images/jeff bezos.jpg')
-    file8 = types.FSInputFile('images/ferrucho.jpg')
-    file9 = types.FSInputFile('images/TASS_4205131-oleg-tinkov-in-red-front.jpg')
-    file10 = types.FSInputFile('images/Warren-Buffett-01.jpg')
-    all_photo = [file1, file2, file3, file4, file5, file6, file7, file8, file9, file10]
-    rand_pic = random.choice(all_photo)
-    await message.answer_photo(rand_pic)
+async def send_picture(message: types.Message):
+    img_dir = 'C:\\Users\\hp\\PycharmProjects\\Telegram_BOT\\images'
+    img_list = os.listdir(img_dir)
+    img_path = os.path.join(img_dir, random.choice(img_list))
+    file = types.FSInputFile(img_path)
+    await message.answer_photo(photo=file)
+
 
 
 
