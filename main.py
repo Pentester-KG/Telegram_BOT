@@ -30,7 +30,7 @@ async def myinfo_cmd(message: types.Message):
 
 @dp.message(Command('picture'))
 async def send_picture(message: types.Message):
-    img_dir = 'C:\\Users\\hp\\PycharmProjects\\Telegram_BOT\\images'
+    img_dir = 'images'
     img_list = os.listdir(img_dir)
     img_path = os.path.join(img_dir, random.choice(img_list))
     file = types.FSInputFile(img_path)
